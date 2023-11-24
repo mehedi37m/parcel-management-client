@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
@@ -46,15 +45,6 @@ const Login = () => {
       });
   };
 
-  const handleValidateCaptcha = (e) => {
-    const user_value = e.target.value;
-
-    if (validateCaptcha(user_value)) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
 
   return (
     <div>
@@ -99,7 +89,6 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
@@ -111,7 +100,7 @@ const Login = () => {
                 New Here? <Link to="/signUp">Create an Account</Link>
               </small>
             </p>
-            <SocialLogin></SocialLogin>
+            {/* <SocialLogin></SocialLogin> */}
           </div>
         </div>
       </div>

@@ -8,20 +8,17 @@ const NavBar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/menu">Our Menu</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </li>
-      <li>
-        <Link to="/order/salad">Order</Link>
-      </li>
-      <li>
-        <Link to="/secret">Secret</Link>
-      </li>
-      <Link to="/dashboard/cart">
+    
+     
+     <Link to="/dashboard/cart">
           <button className="btn btn-ghost">
             <FaShoppingCart className="mr-2"></FaShoppingCart>
             {/* <div className="badge badge-secondary">+{cart.length}</div> */}
           </button>
         </Link>
+    
     </>
   );
 
@@ -53,13 +50,13 @@ const NavBar = () => {
               {navLink}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">Fast Speed</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to='/login' className="btn">Login</Link>
         </div>
       </div>
     </div>
