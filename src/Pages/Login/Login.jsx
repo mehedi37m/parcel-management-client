@@ -2,6 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { AwesomeButtonShare } from "react-awesome-button";
+
 
 const Login = () => {
   
@@ -81,11 +83,6 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
                 <input
@@ -97,10 +94,12 @@ const Login = () => {
             </form>
             <p className="px-6 pb-2">
               <small>
-                New Here? <Link to="/signUp">Create an Account</Link>
+              Create an Account? <Link to="/signUp" className="text-blue-500">SignUp</Link>
               </small>
             </p>
             {/* <SocialLogin></SocialLogin> */}
+            {/* <AwesomeButtonShare >Google</AwesomeButtonShare> */}
+            {/* <AwesomeButtonShare></AwesomeButtonShare> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
+import useAuth from "../../hooks/useAuth";
 
 const NavBar = () => {
+
+  const {user,logOut,setUser } = useAuth();
+
+
+
+  const handleLogOut = () => {
+    logOut()
+    .then(result => {
+      console.log(result.user)
+      setUser(null)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
   const navLink = (
     <>
       <li>
@@ -10,6 +29,13 @@ const NavBar = () => {
       <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
+      <li>
+        <Link to="/menu">Menu</Link>
+      </li>
+      <li>
+        <Link to="/addItem">add</Link>
+      </li>
+      
     
      
      <Link to="/dashboard/cart">
@@ -55,9 +81,57 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/login' className="btn">Login</Link>
-        </div>
+
+
+
+
+
+
+        <div>
+              {user ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
+                    <div className="w-10 rounded-full flex justify-center items-center">
+                      {/* <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"> </FaUserAlt> */}
+                      {user ? (
+              <div className="mask h-12 w-12 mask-circle">
+                <img src={user.photoURL} />
+              </div> ): ( <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"> </FaUserAlt>
+            )}
+
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-500 rounded-box w-52"
+                  >
+                    <li className="text-white mb-3">
+                      <Link to={`/userName`} className="justify-between">
+                       User Name
+                      </Link>
+                    </li>
+                    <li className="text-white mb-3">
+                      <Link to={`/dashboard`} className="justify-between">
+                     Dashboard
+                      </Link>
+                    </li>
+                
+
+                    <li className="text-white mb-3">
+                      <button onClick={handleLogOut}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li className="text-white mb-3 list-none btn btn-primary">
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
+            </div>
+       
       </div>
     </div>
   );

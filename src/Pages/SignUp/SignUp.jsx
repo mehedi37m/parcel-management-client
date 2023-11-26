@@ -28,9 +28,13 @@ const SignUp = () => {
           .then(() => {
             const userInfo ={
               name: data.name,
-              email: data.email
+              email: data.email,
+              role: 'user'
             }
-            axiosLocal.post('/users',userInfo)
+            axiosLocal.post('/users',userInfo,{
+              withCredentials: true
+              
+            })
             .then(res => {
               if(res.data.insertedId){
                 reset();
@@ -161,11 +165,6 @@ const SignUp = () => {
                     keyword{" "}
                   </span>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
 
               <div className="form-control mt-6">
@@ -178,7 +177,7 @@ const SignUp = () => {
             </form>
             <p className="px-6 pb-2">
               <small>
-                New Here? <Link to="/login">Already an Account</Link>
+              Already an Account? <Link to="/login" className="text-blue-500">Login</Link>
               </small>
             </p>
             {/* <SocialLogin></SocialLogin> */}
