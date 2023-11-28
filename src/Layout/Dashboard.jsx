@@ -1,4 +1,4 @@
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaListAlt, FaSearch, FaShoppingCart, FaUser, FaUsers, FaUtensils, } from "react-icons/fa";
+import { FaAd, FaHome, FaList, FaListAlt, FaParagraph, FaSearch, FaShoppingCart, FaUser, FaUsers, FaUtensils, } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import { MdDeliveryDining } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
@@ -22,6 +22,9 @@ const Dashboard = () => {
           </li>
           <li>    
             <NavLink to="/dashboard/manageItems"> <FaList></FaList> Manage Items</NavLink>
+          </li>
+          <li>    
+            <NavLink to="/dashboard/allParcel"> <FaParagraph></FaParagraph> All Parcel</NavLink>
           </li>
           <li>    
             <NavLink to="/dashboard/allUsers"> <FaUsers></FaUsers> All Users</NavLink>

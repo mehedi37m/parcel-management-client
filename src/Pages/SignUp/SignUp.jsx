@@ -3,12 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosLocal from "../../hooks/useAxiosLocal";
+
 
 
 
 const SignUp = () => {
-  const axiosLocal = useAxiosLocal();
+ 
   const { createUser, updateUserProfile } = useAuth();
   const {
     register,
@@ -24,31 +24,35 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((result) => {
        console.log(result.user)
-        updateUserProfile(data.name, data.photoURL)
+        updateUserProfile(data.name, data.photoURL, data.number)
           .then(() => {
             const userInfo ={
               name: data.name,
               email: data.email,
-              role: 'user'
+              role: 'user',
+              phoneNumber: data.number
             }
-            axiosLocal.post('/users',userInfo,{
-              withCredentials: true
-              
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(userInfo),
             })
-            .then(res => {
-              if(res.data.insertedId){
-                reset();
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "user created successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate('/');
-
-              }
-            })                  
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                  Swal.fire({
+                    title: "success",
+                    text: "user added successfully",
+                    icon: "success",
+                    confirmButtonText: "Cool",
+                  });
+                }
+                navigate('/')
+              });
+                              
           })
           .catch((err) => {
             console.log(err);
@@ -64,7 +68,7 @@ const SignUp = () => {
   return (
     <div>
       <Helmet>
-        <title>Bistro Boss | Sign Up</title>
+        <title>Fast Food | Sign Up</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -88,6 +92,24 @@ const SignUp = () => {
                 {errors.name && (
                   <span className="text-red-600 font-bold">
                     Name is required
+                  </span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Number</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  {...register("number", { required: true })}
+                  placeholder="full name"
+                  className="input input-bordered"
+                  required
+                />
+                {errors.name && (
+                  <span className="text-red-600 font-bold">
+                    Number is required
                   </span>
                 )}
               </div>

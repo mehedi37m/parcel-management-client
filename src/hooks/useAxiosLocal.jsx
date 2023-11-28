@@ -1,9 +1,8 @@
 import axios from "axios";
 
 
-
 const axiosLocal = axios.create({
-    baseURL: 'http://localhost:6000'
+    baseURL: 'http://localhost:5000'
 })
 const useAxiosLocal = () => {
     return axiosLocal;

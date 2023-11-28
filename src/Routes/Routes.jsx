@@ -12,6 +12,11 @@ import CardDetails from "../Pages/Menu/CardDetails";
 import AddItems from "../Components/AddItems/AddItems";
 import UpdateItems from "../Components/UpdateItems/UpdateItems";
 import Dashboard from "../Layout/Dashboard";
+import AllUsers from "../Pages/Dashboard/Admin/AllUser/AllUsers";
+import AllDeliveryMan from "../Pages/Dashboard/Admin/AllDeliveryMan/AllDeliveryMan";
+import Profile from "../Pages/Dashboard/Users/MyProfile/Profile";
+import MyBooking from "../Pages/Dashboard/Users/MyBooking/MyBooking";
+import AllParcel from "../Pages/Dashboard/Admin/AllParcel/AllParcel";
 
 const router = createBrowserRouter([
     {
@@ -40,10 +45,7 @@ const router = createBrowserRouter([
           element:<CardDetails></CardDetails>,
           loader:() => fetch('http://localhost:5000/items')
         },
-        {
-          path:'/addItem',
-          element:<AddItems></AddItems>
-        },
+        
         {
           path:"/updateItems/:id",
           element:<UpdateItems></UpdateItems>,
@@ -57,8 +59,30 @@ const router = createBrowserRouter([
       errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
-          
+          path:'addItems',
+          element:<AddItems></AddItems>
+        },
+        {
+          path:'allUsers',
+          element:<AllUsers></AllUsers>
+        },
+        {
+          path:'allDeliveryMan',
+          element:<AllDeliveryMan></AllDeliveryMan>
+        },
+        {
+          path:'profile',
+          element:<Profile></Profile>
+        },
+        {
+          path:'bookings',
+          element:<MyBooking></MyBooking>
+        },
+        {
+          path:'allParcel',
+          element:<AllParcel></AllParcel>
         }
+
       ]
     }
   ]);

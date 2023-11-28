@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
  const axiosSecure = axios.create({
-    baseURL: 'http://localhost:6000',
+    baseURL: 'http://localhost:5000',
 })
 const useAxiosSecure = () => {
    const {logOut} = useAuth();

@@ -32,9 +32,7 @@ const NavBar = () => {
       <li>
         <Link to="/menu">Menu</Link>
       </li>
-      <li>
-        <Link to="/addItem">add</Link>
-      </li>
+     
       
     
      
@@ -108,10 +106,8 @@ const NavBar = () => {
                     tabIndex={0}
                     className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-500 rounded-box w-52"
                   >
-                    <li className="text-white mb-3">
-                      <Link to={`/userName`} className="justify-between">
-                       User Name
-                      </Link>
+                    <li className="text-white text-center bg-red-500 p-3 rounded-lg mb-3">
+                      {user.displayName}
                     </li>
                     <li className="text-white mb-3">
                       <Link to={`/dashboard`} className="justify-between">
