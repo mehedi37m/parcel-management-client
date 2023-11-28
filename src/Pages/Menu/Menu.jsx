@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
     const {setLoading} = useAuth();
@@ -47,6 +48,9 @@ const handleDelete = (_id) => {
 
     return (
         <div >
+           <Helmet>
+        <title>Fast Food | Menu</title>
+      </Helmet>
             <SectionTitle heading={'All Menu List'} subHeading={'Fast Food'}></SectionTitle>
             {cards.length}
 

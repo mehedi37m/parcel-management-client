@@ -17,6 +17,8 @@ import AllDeliveryMan from "../Pages/Dashboard/Admin/AllDeliveryMan/AllDeliveryM
 import Profile from "../Pages/Dashboard/Users/MyProfile/Profile";
 import MyBooking from "../Pages/Dashboard/Users/MyBooking/MyBooking";
 import AllParcel from "../Pages/Dashboard/Admin/AllParcel/AllParcel";
+import DeliveryList from "../Pages/Dashboard/DelivaryMan/MyDeliveryList/DeliveryList";
+import Statistics from "../Pages/Dashboard/Admin/Statistics/Statistics";
 
 const router = createBrowserRouter([
     {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
         {
           path:'allParcel',
           element:<AllParcel></AllParcel>
+        },
+        {
+          path:'deliveryList',
+          element:<DeliveryList></DeliveryList>
+        },
+        {
+          path:'statistics',
+          element:<Statistics></Statistics>
         }
 
       ]

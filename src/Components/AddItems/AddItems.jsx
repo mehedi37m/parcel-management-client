@@ -109,7 +109,7 @@ const handleAddItems = e => {
               <span className="label-text">Price</span>
             </label>
             <input name="price"
-              type="text"
+              type="number"
               placeholder="Price"
               className="input input-bordered"
               required

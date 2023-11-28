@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
-import { FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useGetAllUsers from "../../../../hooks/useGetAllUsers";
 
 const AllParcel = () => {
   const [allCarts, setAllCarts] = useState([]);
+  const [selectedDeliveryManId, setSelectedDeliveryManId] = useState("");
+  const [selectedDeliveryManName, setSelectedDeliveryManName] = useState("");
+  const [selectedDeliveryManEmail, setSelectedDeliveryManEmail] = useState("");
+  console.log(selectedDeliveryManId);
+
+  const [user] = useGetAllUsers();
+  const deliveryMan = user.filter((man) => man.role === "deliveryMan");
 
   useEffect(() => {
     fetch("http://localhost:5000/itemsCart")
@@ -12,7 +19,14 @@ const AllParcel = () => {
   }, []);
 
   const handleMakeManage = (user) => {
-    const updatedUser = { ...user, status: "On The Way" };
+    const updatedUser = {
+      ...user,
+      status: "On The Way",
+      deliveryMan_id: selectedDeliveryManId,
+      deliveryMan_name: selectedDeliveryManName,
+      deliveryMan_email: selectedDeliveryManEmail
+    };
+    // console.log(updatedUser)
 
     fetch(`http://localhost:5000/itemsCart/onTheWay/${user._id}`, {
       method: "PATCH",
@@ -23,7 +37,6 @@ const AllParcel = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Assuming your response structure includes a "modifiedCount" property
         if (data.modifiedCount > 0) {
           Swal.fire({
             position: "top-end",
@@ -39,6 +52,13 @@ const AllParcel = () => {
       .catch((error) => {
         console.error("Error updating status:", error);
       });
+  };
+  const handleDeliveryManChange = (event) => {
+    const { value } = event.target;
+    const [deliveryManId, deliveryManName , deliveryManEmail] = value.split(":");
+    setSelectedDeliveryManId(deliveryManId);
+    setSelectedDeliveryManName(deliveryManName);
+    setSelectedDeliveryManEmail(deliveryManEmail)
   };
 
   return (
@@ -62,6 +82,7 @@ const AllParcel = () => {
                 <th>Delivery Date</th>
                 <th>Cost</th>
                 <th>Status</th>
+                <th>Select DeliveryMan</th>
               </tr>
             </thead>
             <tbody>
@@ -86,6 +107,24 @@ const AllParcel = () => {
                         <span className="text-white text-xl">manage </span>
                       </button>
                     )}
+                  </td>
+                  <td>
+                    <select
+                      className="select select-bordered w-full max-w-xs"
+                      onChange={handleDeliveryManChange}
+                    >
+                      <option disabled selected>
+                        Manage DeliveryMan
+                      </option>
+                      {deliveryMan.map((deliveryMan) => (
+                        <option
+                          key={deliveryMan._id}
+                          value={`${deliveryMan._id}:${deliveryMan.name}:${deliveryMan.email}`}
+                        >
+                          {deliveryMan.name}
+                        </option>
+                      ))}
+                    </select>
                   </td>
                 </tr>
               ))}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaAd, FaHome, FaList, FaListAlt, FaParagraph, FaSearch, FaShoppingCart, FaUser, FaUsers, FaUtensils, } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import { MdDeliveryDining } from "react-icons/md";
@@ -9,7 +10,11 @@ const Dashboard = () => {
 
     
   return (
-    <div className="flex">
+    <div>
+       <Helmet>
+        <title>Fast Food | Dashboard</title>
+      </Helmet>
+      <div className="flex">
       {/* side bar */}
       <div className="w-64 min-h-screen bg-blue-200">
         <ul className="menu p-4">
@@ -41,9 +46,6 @@ const Dashboard = () => {
           </li>
            
           <li>    
-            <NavLink to="/dashboard/cart"> <FaShoppingCart></FaShoppingCart> My Parcel () </NavLink>
-          </li>
-          <li>    
             <NavLink to="/dashboard/profile"> <FaUser></FaUser> My Profile</NavLink>
           </li>
           <li>    
@@ -67,6 +69,7 @@ const Dashboard = () => {
       <div className="flex-1 p-8">
         <Outlet></Outlet>
       </div>
+    </div>
     </div>
   );
 };
