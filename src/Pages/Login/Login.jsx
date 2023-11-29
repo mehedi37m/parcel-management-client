@@ -2,7 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { AwesomeButtonShare } from "react-awesome-button";
+import Lottie from "lottie-react";
+import login from "../../assets/login12.json";
 
 
 const Login = () => {
@@ -54,9 +55,17 @@ const Login = () => {
         <title>Fast Food | Login</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
+            <div>
+          <Lottie
+            style={{ height: "150px" }}
+            animationData={login}
+            loop={true}
+          />
+        </div>
+
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
@@ -98,8 +107,7 @@ const Login = () => {
               </small>
             </p>
             {/* <SocialLogin></SocialLogin> */}
-            {/* <AwesomeButtonShare >Google</AwesomeButtonShare> */}
-            {/* <AwesomeButtonShare></AwesomeButtonShare> */}
+           
           </div>
         </div>
       </div>

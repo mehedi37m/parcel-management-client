@@ -35,8 +35,11 @@ const Statistics = () => {
 
   // If data has loaded, render the chart
   return (
-    <div>
-      <Chart
+    <div  className="bg-purple-800">
+      <Chart data-aos="fade-down"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"
         type="bar"
         height={500}
         series={[

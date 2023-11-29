@@ -116,7 +116,7 @@ const CardDetails = () => {
       </div>
 
 
-      <div className="card w-full  shadow-2xl bg-base-100 ">
+      <div className="card w-full  shadow-2xl bg-sky-500">
       <form onSubmit={handleBookParcel} className="card-body ">
         <div className="flex justify-around">
         <div>
@@ -202,12 +202,7 @@ const CardDetails = () => {
       </div>
 
  <div>
-  <form action="">
-    <input type="text" name="name" placeholder="name" id="" />
-    <input type="text" name="email" placeholder="email" id="" />
-    <input type="text" name="password" placeholder="password" id="" />
-    <input type="submit" value="submit" />
-  </form>
+
  </div>
       
     </div>

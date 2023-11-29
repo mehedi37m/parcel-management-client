@@ -35,7 +35,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -58,7 +58,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -79,7 +79,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -100,7 +100,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -121,7 +121,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -142,7 +142,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -163,7 +163,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -184,7 +184,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">
@@ -205,7 +205,7 @@ const Banner = () => {
         <div data-aos="zoom-in-up"
      data-aos-easing="linear"
      data-aos-duration="1500"
-         className="text-white space-y-7 pl-12 w-1/2">
+         className="text-white space-y-7 pl-12 md:w-1/2">
             <h1 className="text-6xl font-bold">Too Fast Product</h1>
             <p>This is a list of vegetable dishes, that includes dishes in which the main ingredient or one of the essential ingredients is a vegetable or vegetables.</p>
             <div className="flex justify-center">

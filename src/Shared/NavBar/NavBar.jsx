@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import useAuth from "../../hooks/useAuth";
+import logo from "../../assets/logo.jpg"
 
 const NavBar = () => {
 
@@ -74,7 +75,9 @@ const NavBar = () => {
               {navLink}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Fast Speed</a>
+          <Link to='/' className="btn btn-ghost normal-case text-xl">
+            <img className="h-8" src={logo} alt="" />
+            Fast Speed</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>

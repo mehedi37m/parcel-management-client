@@ -1,10 +1,15 @@
 
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+import add from '../../assets/add.json'
+import useAuth from "../../hooks/useAuth";
 
 
 
 const AddItems = () => {
+  const {user} = useAuth();
+  const {email} = user;
 
   
 
@@ -21,7 +26,7 @@ const handleAddItems = e => {
     const stock = form.stock.value;
     const in_stock = 'true';
 
-   const newItems = {name, image_url, price, weight, organic, origin, stock, in_stock, description}
+   const newItems = {name, email, image_url, price, weight, organic, origin, stock, in_stock, description}
 
 
 
@@ -58,7 +63,14 @@ const handleAddItems = e => {
       <Helmet>
                 <title>Fast Food || AddItems</title>
             </Helmet>
-      <div className=" w-full max-w-sm shadow-2xl bg-base-100">
+      <div data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"
+       className=" w-full max-w-sm shadow-2xl bg-base-100">
+      <div>
+        <Lottie style={{height:'200px'}} animationData={add} loop={true} />
+        </div>
         <form onSubmit={handleAddItems} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -143,6 +155,8 @@ const handleAddItems = e => {
             <button  className="btn btn-primary">Add Product</button>
           </div>
         </form>
+
+       
       </div>
     </div>
   );

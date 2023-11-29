@@ -16,7 +16,7 @@ const Dashboard = () => {
       </Helmet>
       <div className="flex">
       {/* side bar */}
-      <div className="w-64 min-h-screen bg-blue-200">
+      <div className="w-64 min-h-screen text-white bg-red-800">
         <ul className="menu p-4">
           
             <li>    
@@ -26,8 +26,9 @@ const Dashboard = () => {
             <NavLink to="/dashboard/addItems"> <FaUtensils></FaUtensils> Add Item</NavLink>
           </li>
           <li>    
-            <NavLink to="/dashboard/manageItems"> <FaList></FaList> Manage Items</NavLink>
+            <NavLink to="/dashboard/addedList"> <FaUtensils></FaUtensils> AddedList</NavLink>
           </li>
+       
           <li>    
             <NavLink to="/dashboard/allParcel"> <FaParagraph></FaParagraph> All Parcel</NavLink>
           </li>

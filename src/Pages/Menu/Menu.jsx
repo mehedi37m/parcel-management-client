@@ -20,30 +20,7 @@ useEffect(() =>{
 
 
 
-const handleDelete = (_id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/items/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              setLoading(true);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-          });
-      }
-    });
-  };
+
 
 
     return (
@@ -54,7 +31,10 @@ const handleDelete = (_id) => {
             <SectionTitle heading={'All Menu List'} subHeading={'Fast Food'}></SectionTitle>
             {cards.length}
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center'>
+            <div data-aos="fade-down"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center'>
                 {
                     cards.map(card=><div key={card._id}>
 
@@ -71,10 +51,7 @@ const handleDelete = (_id) => {
     </div>
     <div className="card-actions justify-start">
      <Link to={`/details/${card._id}`}> <button className="btn btn-primary">Details</button></Link>
-     <Link to={`/updateItems/${card._id}`}> <button className="btn btn-primary">update</button></Link>
-     <button onClick={() => handleDelete(card._id)} className="btn btn-accent btn-xs" >
-                    X
-    </button>
+     
     </div>
   </div>
 </div>

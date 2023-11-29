@@ -30,7 +30,8 @@ const SignUp = () => {
               name: data.name,
               email: data.email,
               role: 'user',
-              phoneNumber: data.number
+              phoneNumber: data.number,
+              image: data.photoURL
             }
             fetch("http://localhost:5000/users", {
               method: "POST",

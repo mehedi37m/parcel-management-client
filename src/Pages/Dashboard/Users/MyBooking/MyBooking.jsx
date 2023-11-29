@@ -10,7 +10,7 @@ const MyBooking = () => {
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
     const axiosSecure = useAxiosSecure();
 
-    const id = 
+    
 
     const handleDelete = id => {
         Swal.fire({

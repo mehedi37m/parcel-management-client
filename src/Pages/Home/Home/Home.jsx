@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import BookParcel from "../../Dashboard/Users/BookParcel/BookParcel";
 import Banner from "../Banner/Banner";
 import Features from "../Features/Features";
 import ToDeliveryMan from "../TopDeliveryMan/ToDeliveryMan";
+import Featured from "../Featured/Featured";
+
 
 
 const Home = () => {
@@ -13,8 +14,9 @@ const Home = () => {
       </Helmet>
             <Banner></Banner>
             <Features></Features>
+            <Featured></Featured>
             <ToDeliveryMan></ToDeliveryMan>
-            <BookParcel></BookParcel>
+           
         </div>
     );
 };

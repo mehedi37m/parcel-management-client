@@ -19,6 +19,9 @@ import MyBooking from "../Pages/Dashboard/Users/MyBooking/MyBooking";
 import AllParcel from "../Pages/Dashboard/Admin/AllParcel/AllParcel";
 import DeliveryList from "../Pages/Dashboard/DelivaryMan/MyDeliveryList/DeliveryList";
 import Statistics from "../Pages/Dashboard/Admin/Statistics/Statistics";
+import AddedList from "../Pages/Dashboard/Admin/AddedList/AddedList";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -57,16 +60,16 @@ const router = createBrowserRouter([
     },
     {
       path:"/dashboard",
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
           path:'addItems',
-          element:<AddItems></AddItems>
+          element:<AdminRoute><AddItems></AddItems></AdminRoute>
         },
         {
           path:'allUsers',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
           path:'allDeliveryMan',
@@ -82,7 +85,7 @@ const router = createBrowserRouter([
         },
         {
           path:'allParcel',
-          element:<AllParcel></AllParcel>
+          element:<AdminRoute><AllParcel></AllParcel></AdminRoute>
         },
         {
           path:'deliveryList',
@@ -90,8 +93,12 @@ const router = createBrowserRouter([
         },
         {
           path:'statistics',
-          element:<Statistics></Statistics>
-        }
+          element:<AdminRoute><Statistics></Statistics></AdminRoute>
+        },
+        {
+          path:'addedList',
+          element:<AdminRoute><AddedList></AddedList></AdminRoute>
+        },
 
       ]
     }
