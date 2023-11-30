@@ -3,11 +3,26 @@ import { FaAd, FaHome, FaList, FaListAlt, FaParagraph, FaSearch, FaShoppingCart,
 import { FcStatistics } from "react-icons/fc";
 import { MdDeliveryDining } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import useGetAllUsers from "../hooks/useGetAllUsers";
 
 
 const Dashboard = () => {
-    
 
+  const {user} = useAuth();
+
+  const [users] = useGetAllUsers();
+
+  const newUser = users.find(man =>man.email == user.email)
+
+  console.log(newUser)
+    
+  const isAdmin = newUser.role === 'admin';
+  const isDeliveryMan = newUser.role === 'deliveryMan';
+  const isUser = newUser.role == 'user';
+
+  // console.log(isUser)
+  // console.log(user)
     
   return (
     <div>
@@ -18,8 +33,10 @@ const Dashboard = () => {
       {/* side bar */}
       <div className="w-64 min-h-screen text-white bg-red-800">
         <ul className="menu p-4">
-          
-            <li>    
+
+         {
+          isAdmin && (<>
+           <li>    
             <NavLink to="/dashboard/statistics"> <FcStatistics></FcStatistics> Statistics</NavLink>
           </li>
           <li>    
@@ -38,20 +55,29 @@ const Dashboard = () => {
           <li>    
             <NavLink to="/dashboard/allDeliveryMan"> <MdDeliveryDining></MdDeliveryDining> All Delivery Men</NavLink>
           </li>
-          <li>    
+
+          
+          </>)
+         }
+          
+           
+         
+         { isDeliveryMan && (<> <li>    
             <NavLink to="/dashboard/deliveryList"> <FaListAlt></FaListAlt> My Delivery List</NavLink>
           </li>
 
           <li>    
             <NavLink to="/dashboard/review"> <FaAd></FaAd>My Review</NavLink>
           </li>
+          </>)}
            
-          <li>    
+         { isUser && (<> <li>    
             <NavLink to="/dashboard/profile"> <FaUser></FaUser> My Profile</NavLink>
           </li>
           <li>    
             <NavLink to="/dashboard/bookings"> <FaList></FaList> My Bookings</NavLink>
           </li>
+          </>)}
             
           
 

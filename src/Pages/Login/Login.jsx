@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import Lottie from "lottie-react";
 import login from "../../assets/login12.json";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -106,7 +107,7 @@ const Login = () => {
               Create an Account? <Link to="/signUp" className="text-blue-500">SignUp</Link>
               </small>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+             <SocialLogin></SocialLogin> 
            
           </div>
         </div>

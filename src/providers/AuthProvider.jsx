@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 
 // import axios from "axios";
@@ -60,15 +61,33 @@ const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      // console.log('current user', currentUser);
-      setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        const userEmail = currentUser?.email || user?.email;
+        const loggedUser = { email: userEmail };
+        setUser(currentUser);
+        // console.log('current user', currentUser);
+        setLoading(false);
+        // if user exists then issue a token
+        if (currentUser) {
+            axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                .then(res => {
+                    console.log('token response', res.data);
+                })
+        }
+        else {
+            axios.post('http://localhost:5000/logout', loggedUser, {
+                withCredentials: true
+            })
+                .then(res => {
+                    console.log(res.data);
+                })
+        }
     });
     return () => {
-      return unsubscribe();
-    };
-  }, []);
+        return unsubscribe();
+    }
+}, [])
+
 
   const authInfo = {
     signInWithGoogle,

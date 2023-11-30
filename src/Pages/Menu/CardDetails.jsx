@@ -18,7 +18,7 @@ const CardDetails = () => {
 
   const card = allDetails.find((card) => card._id == id);
 
-  const { _id, name, image_url, price, description } = card;
+  const {  name, image_url, price, description } = card;
 
 
 

@@ -22,6 +22,7 @@ import Statistics from "../Pages/Dashboard/Admin/Statistics/Statistics";
 import AddedList from "../Pages/Dashboard/Admin/AddedList/AddedList";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import Review from "../Pages/Dashboard/DelivaryMan/My Review/Review";
 
 const router = createBrowserRouter([
     {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
           path:'addedList',
           element:<AdminRoute><AddedList></AddedList></AdminRoute>
         },
+        {
+          path:'review',
+          element:<Review></Review>
+        }
 
       ]
     }

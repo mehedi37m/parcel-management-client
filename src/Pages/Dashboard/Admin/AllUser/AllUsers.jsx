@@ -56,6 +56,7 @@ const AllUsers = () => {
       // console.log(res.data);
 
       if (res.data.modifiedCount > 0) {
+        setLoading(true);
         refetch();
         Swal.fire({
           position: "top-end",

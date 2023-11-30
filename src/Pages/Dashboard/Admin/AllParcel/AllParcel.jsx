@@ -4,10 +4,10 @@ import useGetAllUsers from "../../../../hooks/useGetAllUsers";
 
 const AllParcel = () => {
   const [allCarts, setAllCarts] = useState([]);
-  const [selectedDeliveryManId, setSelectedDeliveryManId] = useState("");
-  const [selectedDeliveryManName, setSelectedDeliveryManName] = useState("");
   const [selectedDeliveryManEmail, setSelectedDeliveryManEmail] = useState("");
-  console.log(selectedDeliveryManId);
+  const [selectedDeliveryManName, setSelectedDeliveryManName] = useState("");
+  
+  console.log(selectedDeliveryManEmail);
 
   const [user] = useGetAllUsers();
   const deliveryMan = user.filter((man) => man.role === "deliveryMan");
@@ -22,9 +22,9 @@ const AllParcel = () => {
     const updatedUser = {
       ...user,
       status: "On The Way",
-      deliveryMan_id: selectedDeliveryManId,
+      deliveryMan_email: selectedDeliveryManEmail,
       deliveryMan_name: selectedDeliveryManName,
-      deliveryMan_email: selectedDeliveryManEmail
+      
     };
     // console.log(updatedUser)
 
@@ -55,10 +55,10 @@ const AllParcel = () => {
   };
   const handleDeliveryManChange = (event) => {
     const { value } = event.target;
-    const [deliveryManId, deliveryManName , deliveryManEmail] = value.split(":");
-    setSelectedDeliveryManId(deliveryManId);
+    const [deliveryManEmail, deliveryManName  ] = value.split(":");
+    setSelectedDeliveryManEmail(deliveryManEmail);
     setSelectedDeliveryManName(deliveryManName);
-    setSelectedDeliveryManEmail(deliveryManEmail)
+    
   };
 
   return (
@@ -119,7 +119,7 @@ const AllParcel = () => {
                       {deliveryMan.map((deliveryMan) => (
                         <option
                           key={deliveryMan._id}
-                          value={`${deliveryMan._id}:${deliveryMan.name}:${deliveryMan.email}`}
+                          value={`${deliveryMan.email}:${deliveryMan.name}`}
                         >
                           {deliveryMan.name}
                         </option>
